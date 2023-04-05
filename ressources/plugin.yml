@@ -1,0 +1,10 @@
+name: GabzAPI-TEST
+main: ch.gabzdev.gabzapi_test.Main
+version: 1.0
+commands:
+  coins:
+    description: Manage player coins
+    aliases: [ c ]
+    permission: gabzapi.coins
+    permission-message: "§cErreur: Vous n'avez pas la permission.\n§eInfo: Le system de coins est en développement !"
+

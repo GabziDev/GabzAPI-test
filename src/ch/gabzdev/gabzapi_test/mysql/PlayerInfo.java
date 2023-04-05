@@ -28,15 +28,15 @@ public class PlayerInfo {
         return playerData;
     }
 
-    public Float getCoinsNumber() {
+    public Long getCoinsNumber() {
         return playerData.getCoins();
     }
 
-    public void addCoins(float amount) {
+    public void addCoins(long amount) {
         playerData.addCoins(amount);
     }
 
-    public void removeCoins(float amount) {
+    public void removeCoins(long amount) {
         playerData.removeCoins(amount);
     }
 }

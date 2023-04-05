@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class CoinsCommand implements CommandExecutor {
-    private final int MAX_COINS = 5000000;
+    private final long MAX_COINS = 5000000;
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -34,7 +34,7 @@ public class CoinsCommand implements CommandExecutor {
                     Player target = Bukkit.getPlayer(playerName);
                     if (target != null) {
                         String amountString = args[1].replace(",", ".");
-                        float amount = 0;
+                        long amount = 0;
                         try {
                             amount = Integer.parseInt(amountString);
                         } catch (NumberFormatException e) {
@@ -64,7 +64,7 @@ public class CoinsCommand implements CommandExecutor {
                     Player target = Bukkit.getPlayer(playerName);
                     if (target != null) {
                         String amountString = args[1].replace(",", ".");
-                        float amount = 0;
+                        long amount = 0;
                         try {
                             amount = Integer.parseInt(amountString);
                         } catch (NumberFormatException e) {

@@ -33,7 +33,7 @@ public class DatabaseManager {
                 PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO players (uuid_player, pseudo_player, coins) VALUES (?, ?, ?)");
                 preparedStatement.setString(1, uuid.toString());
                 preparedStatement.setString(2, Bukkit.getPlayer(uuid).getName());
-                preparedStatement.setFloat(3, 100F);
+                preparedStatement.setLong(3, 100);
                 preparedStatement.execute();
                 preparedStatement.close();
             } catch (SQLException e) {

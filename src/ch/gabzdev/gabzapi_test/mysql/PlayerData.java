@@ -11,10 +11,10 @@ public class PlayerData {
         this.uuid = uuid;
     }
 
-    public void addCoins(float amount) {
+    public void addCoins(long amount) {
         try {
             PreparedStatement preparedStatement = DatabaseManager.getConnexion().prepareStatement("UPDATE players SET coins = coins + ? WHERE uuid_player = ?");
-            preparedStatement.setFloat(1, amount);
+            preparedStatement.setLong(1, amount);
             preparedStatement.setString(2, uuid.toString());
             preparedStatement.executeUpdate();
             preparedStatement.close();
@@ -24,10 +24,10 @@ public class PlayerData {
         }
     }
 
-    public void removeCoins(float amount) {
+    public void removeCoins(long amount) {
         try {
             PreparedStatement preparedStatement = DatabaseManager.getConnexion().prepareStatement("UPDATE players SET coins = coins - ? WHERE uuid_player = ?");
-            preparedStatement.setFloat(1, amount);
+            preparedStatement.setLong(1, amount);
             preparedStatement.setString(2, uuid.toString());
             preparedStatement.executeUpdate();
             preparedStatement.close();
@@ -37,16 +37,16 @@ public class PlayerData {
         }
     }
 
-    public Float getCoins() {
+    public Long getCoins() {
         try {
 
             PreparedStatement preparedStatement = DatabaseManager.getConnexion().prepareStatement("SELECT coins FROM players WHERE uuid_player = ?");
             preparedStatement.setString(1, uuid.toString());
             ResultSet rs = preparedStatement.executeQuery();
-            float coins = 0f;
+            long coins = 0;
 
             while (rs.next()) {
-                coins = rs.getFloat("coins");
+                coins = rs.getLong("coins");
             }
             preparedStatement.close();
 
@@ -55,6 +55,6 @@ public class PlayerData {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return 0.0f;
+        return 0L;
     }
 }
